@@ -1,0 +1,27 @@
+<?python
+  title = 'A Genshi Template'
+  fruits = ["apple", "orange", "kiwi"]
+  images = Markup('<img src="http://media.djangoproject.com/img/site/hdr_logo.gif" ')+Markup('/>')
+  image = '<img src="http://media.djangoproject.com/img/site/hdr_logo.gif" />'
+  #print images
+  #print image
+?>
+<html xmlns:py="http://genshi.edgewall.org/">
+  <head>
+    <title py:content="title">This is replaced.</title>
+  </head>
+
+  <body>
+    <p>${c.pylons_paths_controller}</p>
+    <p>${c.request}</p>
+    <p>${h.url_for(controller='account', action='login')}</p>
+    <p>These are some of my favorite fruits:</p>
+    <ul>
+      <li py:for='fruit in fruits'>
+        I like ${fruit}s
+      </li>
+    </ul>
+    $images
+    <img src="http://media.djangoproject.com/img/site/hdr_logo.gif" />
+  </body>
+</html>

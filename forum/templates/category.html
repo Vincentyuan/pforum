@@ -1,0 +1,93 @@
+
+<?python
+from forum.lib.pages import page_navigation
+from forum.lib.pages import howlong
+
+page_nav = Markup(page_navigation('/categories/%s/'%str(c.category[0]),c.pages_current,c.pages_total))
+?>
+<html xmlns:py="http://genshi.edgewall.org/"
+xmlns:xi="http://www.w3.org/2001/XInclude">
+  <head>
+    <title>Category - ${c.category[1]}</title>
+    <link rel="stylesheet" type="text/css"
+    href="/style/simple.css" />
+    <style type="text/css">
+      <!--
+-->
+    </style>
+  </head>
+  <body id="DiscussionsPage">
+    <xi:include href="navigation.html" />
+    <div id="Body">
+      <xi:include href="sidebar.html" />
+      <div id="Content">
+        <div class="ContentInfo Top">
+          <h1>${c.category[1]}</h1>
+          <div class="PageInfo">
+            <p>${c.topics_start} to ${c.topics_end} of ${c.topics_total}</p>
+            <ul class="PageList">
+              $page_nav
+            </ul>
+          </div>
+        </div>
+        <div id="ContentBody">
+          <ol id="Discussions">
+            <li py:for="i in c.topics" id="Discussion_${i[0]}"
+            class="Discussion Unread NewComments Category_1">
+              <ul>
+                <li class="DiscussionType">
+                  <span>Discussion Type</span>
+                </li>
+                <li class="DiscussionTopic">
+                <span>discussion topic</span>
+                <a href='${h.url_for(controller="topics",action="view",id=i[0])}'>
+                ${i[1]}</a></li>
+                <li class="DiscussionCategory">
+                  <span>Category</span>
+                  <a href="https://www.Pforum.com/forum-pub/?CategoryID=1">
+                  ${i[2]}</a>
+                </li>
+                <li class="DiscussionStarted">
+                  <span>
+                    <a href="https://www.Pforum.com/forum-pub/comments.php?DiscussionID=${i[0]}#Item_1">
+                    Started by</a>
+                  </span>
+                  <a href="https://www.Pforum.com/forum-pub/account.php?u=67">
+                  ${i[3]}</a>
+                </li>
+                <li class="DiscussionComments">
+                <span>Comments</span>
+                ${i[5]}</li>
+                <li class="DiscussionLastComment">
+                  <span>
+                    <a href="https://www.Pforum.com/forum-pub/comments.php?DiscussionID=${i[0]}&amp;page=1#Item_3">
+                    Last comment by</a>
+                  </span>
+                  <a href="https://www.Pforum.com/forum-pub/account.php?u=1472">
+                  ${i[4]}</a>
+                </li>
+                <li class="DiscussionActive">
+                <span>
+                  <a href="https://www.Pforum.com/forum-pub/comments.php?DiscussionID=${i[0]}&amp;page=1#Item_3">
+                  Last Active</a>
+                </span>${howlong(i[6])}</li>
+              </ul>
+            </li>
+          </ol>
+        </div>
+        <div class="ContentInfo Bottom">
+          <div class="PageInfo">
+            <p>${c.topics_start} to ${c.topics_end} of ${c.topics_total}</p>
+            <ul class="PageList">
+              $page_nav
+            </ul>
+          </div>
+          <a id="TopOfPage"
+          href="https://www.Pforum.com/forum-pub/#pgtop">Top of
+          Page</a>
+        </div>
+      </div>
+      <a id="pgbottom" name="pgbottom">&#160;</a>
+    </div>
+  </body>
+</html>

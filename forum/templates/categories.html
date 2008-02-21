@@ -1,0 +1,45 @@
+<html xmlns:py="http://genshi.edgewall.org/"
+xmlns:xi="http://www.w3.org/2001/XInclude">
+  <head>
+    <title>Categories</title>
+    <link rel="stylesheet" type="text/css"
+    href="/style/simple.css" />
+    <style type="text/css">
+      <!--
+-->
+    </style>
+  </head>
+  <body id="CategoryPage">
+    <xi:include href="navigation.html" />
+    <div id="Body">
+      <xi:include href="sidebar.html" />
+      <div id="Content">
+        <div class="ContentInfo Top">
+          <h1>Categories</h1>
+        </div>
+        <div id="ContentBody">
+          <ol id="Categories">
+            <li py:for='i in c.categories' id="Category_${i[0]}"
+            class="Category UnblockedCategory FirstCategory Category_${i[0]}">
+
+              <ul>
+                <li class="CategoryName">
+                  <span>Category</span>
+                  <a href='${h.url_for(controller="categories",action="view",category_id=i[0])}'>
+                  ${i[1]}</a>
+                </li>
+                <li class="CategoryDescription">
+                <span>Category description</span>
+                ${i[2]}</li>
+                <li class="CategoryDiscussionCount">
+                <span>Discussions</span>
+                291</li>
+              </ul>
+            </li>
+          </ol>
+        </div>
+      </div>
+      <a id="pgbottom" name="pgbottom">&#160;</a>
+    </div>
+  </body>
+</html>

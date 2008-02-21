@@ -1,0 +1,86 @@
+<html xmlns:py="http://genshi.edgewall.org/">
+  <head>
+    <title>Login</title>
+    <link rel="stylesheet" type="text/css"
+    href="/style/simple.css" />
+    <style type="text/css">
+      <!--
+-->
+    </style>
+  </head>
+  <body id="login">
+    <div id="content">
+      <div id='login'>
+        <form action='${h.url_for(controller="account",action="login")}' method="POST">
+        <div id='title'>Login</div>
+        <div id='username'>Username:<input type='text' name='username' /></div>
+        <div id='password'>Password:<input type='password' name='password' /></div>
+        <div id='submit'><input type='submit' /></div>
+        </form>
+        <div>
+            <a href='${h.url_for(controller="account",action="signup")}'>signup</a>
+            <a href='${h.url_for(controller="topics",action="index")}'>back</a>
+        </div>
+      </div>
+    </div>
+    
+    <div id="bod_wrap">
+      <div id="page">
+        <div id="header">
+          <h1>
+            <a href="/">Pforum</a>
+          </h1>
+        </div>
+        <!-- #header -->
+        <div id="content">
+          <div id="content_wrap">
+            <h1 id="title">Login</h1>
+            <div id="main">
+              <div id="mochipass">
+                <div class="wrapper">
+                  <form accept-charset="US-ASCII UTF-8"
+                  method="POST" name="form_login"
+                  action="/login">
+                    <input type="hidden" name="t_token"
+                    value="" />
+                    <div class="fieldset">
+                      <label for="email">email or username:</label>
+                      <input id="email" name="email" type="text"
+                      value="" class="textbox" />
+                      <label for="password">password:</label>
+                      <input id="password" name="password"
+                      type="password" class="textbox"
+                      maxlength="16" />
+                      <input type="submit" name="login"
+                      value="login" class="b-login" />
+                      <div class="clear"></div>
+                      <label id="rememberme">
+                      <input name="remember_me"
+                      type="checkbox" />Remember me on this
+                      computer</label>
+                    </div>
+                    <input type="hidden" name="service"
+                    value="ads" />
+                    <input type="hidden" name="host"
+                    value="" />
+                  </form>
+                </div>
+                <div class="actions">
+                  <a href="/forgot">I forgot my password</a>
+                  <!-- | <a href="#">What is this?</a> -->
+                </div>
+              </div>
+              <!-- end mochipass -->
+            </div>
+            <div class="clear"></div>
+          </div>
+        </div>
+        <!-- #content -->
+      </div>
+      <!-- #page -->
+      <div id="footer">
+      </div>
+      <!-- #footer -->
+    </div>
+  </body>
+</html>

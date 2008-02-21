@@ -1,0 +1,122 @@
+<html xmlns:py="http://genshi.edgewall.org/"
+xmlns:xi="http://www.w3.org/2001/XInclude">
+  <head>
+    <title>Discussions - ${c.topic[9]}</title>
+    <link rel="stylesheet" type="text/css"
+    href="/style/simple.css" />
+    <style type="text/css">
+      <!--
+-->
+    </style>
+  </head>
+  <body id="CommentsPage">
+    <xi:include href="navigation.html" />
+    <div id="Body">
+      <xi:include href="sidebar.html" />
+      <div id="Content">
+        <div class="ContentInfo Top">
+          <h1>
+          <a href='${h.url_for(controller="categories",action="view",category_id=c.topic[18])}'>
+          ${c.topic[19]}</a>: ${c.topic[9]}</h1>
+          <a href="#pgbottom">Bottom of Page</a>
+          <!--div class="PageInfo">
+            <p>${c.topics_start} to ${c.topics_end} of ${c.topics_total}</p>
+            <ol class="PageList PageListEmpty">
+              <li>&#160;</li>
+            </ol>
+          </div-->
+        </div>
+        <div id="ContentBody">
+          <ol id="Comments">
+            <li py:for='i in c.comments' id="Comment_1482"
+            class="Alternate">
+              <a name="Item_${i[0]}"></a>
+              <div class="CommentHeader">
+                <ul>
+                  <li>
+                    <span>CommentAuthor</span>
+                    <a href="https://www.Pforum.com/forum-pub/account.php?u=874">
+                    ${i[19]}</a>
+                  </li>
+                  <li>
+                  <span>CommentTime</span>Sep 23rd 2007</li>
+                </ul>
+                <span>&#160; 
+                <a href="#Item_${i[0]}" id="Permalink_${i[0]}">
+                permalink</a></span>
+              </div>
+              <div class="CommentBody" id="CommentBody_1482">
+              ${i[7]}</div>
+            </li>
+          </ol>
+        </div>
+        <div class="ContentInfo Middle">
+          <div class="PageInfo">
+            <p>${c.topics_start} to ${c.topics_end} of ${c.topics_total}</p>
+            <ol class="PageList PageListEmpty">
+              <li>&#160;</li>
+            </ol>
+          </div>
+        </div>
+        <div py:if='c.alive' id="Form" class="AddComments">
+          <fieldset>
+            <legend>Add your comments</legend>
+            <form id="frmPostComment" method="post"
+            action='${h.url_for(controller="topics",action="comment",id=c.topic[0])}'>
+
+              <div>
+                <input type="hidden" name="FormPostBackKey"
+                value="e85e4f2817c1d61200a0140812fbce42" />
+                <input type="hidden" name="CommentID" value="0" />
+                <input type="hidden" name="DiscussionID"
+                value="355" />
+                <input type="hidden" name="PostBackAction"
+                value="SaveComment" />
+                <input type="hidden" name="UserCommentCount"
+                value="0" />
+                <input type="hidden" name="AuthUserID" value="0" />
+              </div>
+              <ul>
+                <li>
+                  <label for="WhisperUsername">Whisper your
+                  comments to 
+                  <small>(optional)</small></label>
+                  <input id="WhisperUsername"
+                  name="WhisperUsername" type="text" value=""
+                  class="Whisper AutoCompleteInput"
+                  maxlength="20" />
+                </li>
+                <div id="quicktags"></div>
+                <li>
+                  <label for="CommentBox">
+                  <a href="./" id="CommentBoxController" >
+                  big input</a>Enter your comments</label>
+                  <textarea name="Body" class="SmallCommentBox"
+                  id="CommentBox" rows="10" cols="85"></textarea>
+                </li>
+                <li id="CommentFormats">Format comments as 
+                <input type="radio" name="FormatType"
+                id="Radio_Text" value="Text" checked="checked"
+                class="FormatTypeRadio" />
+                <label for="Radio_Text" class="Radio">Text</label>
+                <input type="radio" name="FormatType"
+                id="Radio_Html" value="Html"
+                class="FormatTypeRadio" />
+                <label for="Radio_Html" class="Radio">
+                Html</label></li>
+              </ul>
+              <div class="Submit">
+              <input type="submit" name="btnSave"
+              value="Add your comments"
+              class="Button SubmitButton AddCommentsButton" />
+              <input name="btnPreview" value="Preview Post"
+              class="Button SubmitButton PreviewButton"
+              type="button" />&#160;</div>
+            </form>
+          </fieldset>
+        </div>
+      </div>
+      <a id="pgbottom" name="pgbottom">&#160;</a>
+    </div>
+  </body>
+</html>
