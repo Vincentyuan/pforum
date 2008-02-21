@@ -1,0 +1,2 @@
+recursive-include forum/public *
+recursive-include forum/templates *

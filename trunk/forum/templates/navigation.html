@@ -1,0 +1,32 @@
+
+<div xmlns:py="http://genshi.edgewall.org/" id="Header">
+  <a name="pgtop"></a>
+  <div class="wrapper">
+    <!--session start-->
+    <div py:if='not c.alive' id="Session">
+        Not signed in (<a href='${h.url_for(controller="account",action="login")}'>Sign In</a>)
+    </div>
+    <div py:if='c.alive' id="Session">
+        Signed in as ${session['name']} (<a href='${h.url_for(controller="account",action="logout")}'>Sign Out</a>)
+    </div>
+    <!--session end-->
+    <h1>
+      <a href="/">Pforum</a>
+    </h1>
+    <ul>
+      <li class="TabOn">
+        <a href='${h.url_for(controller="topics",action="index")}'>
+        Discussions</a>
+      </li>
+      <li>
+        <a href='${h.url_for(controller="categories",action="index")}'>
+        Categories</a>
+      </li>
+      <li>
+        <a href="${h.url_for(controller='search',action='index')}">
+        Search</a>
+      </li>
+    </ul>
+    <div class="clear"></div>
+  </div>
+</div>

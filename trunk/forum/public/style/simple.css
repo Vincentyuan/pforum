@@ -1,0 +1,122 @@
+a, a:hover{
+    color: #ccc;
+}
+
+ol,ul{
+    padding:3px;
+}
+
+li{
+    display:inline;
+}
+
+html,body{
+    width: 100%;
+    margin: 0;
+    color: #999;
+}
+
+
+#Header{
+    padding:5px;
+    float:none;
+    clear: both;
+    background-color: black;
+}
+
+#Header li{
+    display:inline;
+}
+
+
+#Body{
+    padding:5px;
+}
+
+#Body #Panel{
+    float:left;
+    padding:5px;
+    width:200px;
+}
+
+#Body #Panel li{
+    display:block;
+}
+
+#Body #Content{
+    padding:5px;
+    margin-left: 210px;
+}
+
+
+#Discussions li{
+    display:block;
+}
+
+#Discussions .Discussion li{
+    display:inline;
+}
+
+#Discussions li ul li.DiscussionType{
+    display:none;
+}
+
+#Discussions li ul li.DiscussionTopic{
+    display:block;
+}
+
+
+#Categories li{
+    display:block;
+}
+
+#Categories .Categories li{
+    display:inline;
+}
+
+#Comments li{
+    display:block;
+}
+
+
+.PageInfo {
+    height:20px;
+    color:#bbb;
+    border-top:1px solid #ccc;
+    border-bottom:1px solid #ccc;
+    padding:0px 1px;
+    margin:5px 0px;
+    line-height:23px;
+    font-weight:bold;
+}
+
+.PageInfo p {
+    margin:0px;
+    padding:0px;
+    display:inline;
+    float: left;
+}
+
+.PageList {
+    margin:0px;
+    padding:0px;
+    list-style:none;
+    color: #bbb;
+    float:right;
+}
+
+.PageList li {
+    display:inline;
+}
+
+.PageList a,
+.PageList li a {
+    text-decoration:none;
+    color:#3354aa;
+}
+
+#footer{
+    float: none;
+    clear: both;
+    /*background-color: green;*/
+}

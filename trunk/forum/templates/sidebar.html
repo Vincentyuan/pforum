@@ -1,0 +1,32 @@
+
+<div xmlns:py="http://genshi.edgewall.org/" id="Panel">
+  <h1 py:if='c.alive'><a href='${h.url_for(controller="categories",action="post")}'>Start a new discussion</a></h1>
+  <div py:if='not c.alive' id="GuestWelcome">
+    <h2>Welcome!</h2>
+    <p>Want to take part in these discussions? If you have an
+    account then 
+    <a href='${h.url_for(controller="account",action="login")}'>
+    sign in now</a>.</p>
+    <p>If you don't have an account then 
+    <a href='${h.url_for(controller="account",action="signup")}'>
+    apply for one now</a>.</p>
+  </div>
+  <form id="frmBookmark" action="">
+    <div class="Hidden">
+      <input type="hidden" name="OtherBookmarksExist"
+      value="1" />
+    </div>
+  </form>
+  <ul>
+    <li>
+      <h2>Feeds</h2>
+      <ul>
+        <li>
+          <a href="/forum-pub/?Feed=Atom">Atom</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+  <p id="AboutPforum">
+  <a href="/">Pforum</a> is a forum in python.</p>
+</div>
