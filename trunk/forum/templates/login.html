@@ -8,30 +8,28 @@
 -->
     </style>
   </head>
-  <body id="login">
-    <div id="content">
-      <div id='login'>
-        <form action='${h.url_for(controller="account",action="login")}' method="POST">
-        <div id='title'>Login</div>
-        <div id='username'>Username:<input type='text' name='username' /></div>
-        <div id='password'>Password:<input type='password' name='password' /></div>
-        <div id='submit'><input type='submit' /></div>
-        </form>
-        <div>
-            <a href='${h.url_for(controller="account",action="signup")}'>signup</a>
-            <a href='${h.url_for(controller="topics",action="index")}'>back</a>
-        </div>
-      </div>
-    </div>
-    
-    <div id="bod_wrap">
-      <div id="page">
+  <body id="Login">
         <div id="header">
           <h1>
             <a href="/">Pforum</a>
           </h1>
         </div>
         <!-- #header -->
+        <div id="content">
+          <div id='login'>
+            <form action='${h.url_for(controller="account",action="login")}' method="POST">
+            <div id='title'>Login</div>
+            <div id='username'>Username:<input type='text' name='username' /></div>
+            <div id='password'>Password:<input type='password' name='password' /></div>
+            <div id='submit'><input type='submit' /></div>
+            </form>
+            <div>
+                <a href='${h.url_for(controller="account",action="signup")}'>signup</a>
+                <a href='${h.url_for(controller="topics",action="index")}'>back</a>
+            </div>
+          </div>
+        </div>
+        
         <div id="content">
           <div id="content_wrap">
             <h1 id="title">Login</h1>
@@ -74,10 +72,7 @@
             </div>
             <div class="clear"></div>
           </div>
-        </div>
         <!-- #content -->
-      </div>
-      <!-- #page -->
       <div id="footer">
       </div>
       <!-- #footer -->
